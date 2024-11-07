@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Chip Test</string>
+    <string name="please_wait">Please wait, loading doggos…</string>
+    <string name="select_dog">Please select a dog</string>
+    <string name="dog_image">Dog image</string>
+    <string name="dog_name">Images for %s</string>
+    <string name="back_button">Back to dog list</string>
+    <string name="load_error">Unable to load data,\nplease try again later</string>
+</resources>
