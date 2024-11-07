@@ -28,8 +28,21 @@ class ImagesViewModel(private val dogService: DogService): ViewModel() {
             if (response.isSuccessful) {
                 response.body()?.message?.let { images ->
                     imageList.clear()
-                    for (image in images) {
-                        imageList.add(image)
+                    if (images.size <= 10) {
+                        for (image in images) {
+                            imageList.add(image)
+                        }
+                    } else {
+                        val randomIds = HashSet<Int>()
+                        while (randomIds.size < 10) {
+                            val rand = (0..<images.size).random()
+                            if (!randomIds.contains(rand)) {
+                                randomIds.add(rand)
+                            }
+                        }
+                        for (i in randomIds) {
+                            imageList.add(images[i])
+                        }
                     }
                 }
             } else {
