@@ -15,6 +15,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonColors
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
@@ -30,6 +31,10 @@ import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import com.themrfill.chiptest.ui.theme.ChipTestTheme
+import com.themrfill.chiptest.ui.theme.primaryColor
+import com.themrfill.chiptest.ui.theme.primaryColorDisabled
+import com.themrfill.chiptest.ui.theme.secondaryColor
+import com.themrfill.chiptest.ui.theme.secondaryColorDisabled
 import com.themrfill.chiptest.vm.DogViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -45,8 +50,8 @@ class MainActivity : ComponentActivity() {
                     topBar = {
                         TopAppBar(
                             colors = TopAppBarDefaults.topAppBarColors(
-                                containerColor = MaterialTheme.colorScheme.primaryContainer,
-                                titleContentColor = MaterialTheme.colorScheme.primary,
+                                containerColor = primaryColor,
+                                titleContentColor = secondaryColor,
                             ),
                             title = {
                                 Text(stringResource(R.string.select_dog))
@@ -82,7 +87,15 @@ fun DogList(dogs: SnapshotStateList<String>) {
 fun DogCard(data: String) {
     val context = LocalContext.current
     Row(modifier = Modifier.fillMaxWidth().padding(dimensionResource(R.dimen.inner_padding))) {
-        Button(onClick = { showDogImages(data, context) }) {
+        Button(
+            onClick = { showDogImages(data, context) },
+            colors = ButtonColors(
+                containerColor = primaryColor,
+                contentColor = secondaryColor,
+                disabledContainerColor = primaryColorDisabled,
+                disabledContentColor = secondaryColorDisabled,
+            )
+        ) {
             Text(text = data)
         }
     }

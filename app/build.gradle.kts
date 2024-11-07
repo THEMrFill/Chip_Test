@@ -5,12 +5,12 @@ plugins {
 }
 android {
     namespace = "com.themrfill.chiptest"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "com.themrfill.chiptest"
         minSdk = 24
-        targetSdk = 34
+        targetSdk = 35
         versionCode = 1
         versionName = "1.0"
 
@@ -47,11 +47,11 @@ android {
             excludes += "/META-INF/{AL2.0,LGPL2.1}"
         }
     }
-//
-//    configurations.forEach {
-//        it.exclude("com.android.support", "support-core-ui")
-//        it.exclude("com.android.support", "support-compat")
-//    }
+
+    configurations.forEach {
+        it.exclude("com.android.support", "support-core-ui")
+        it.exclude("com.android.support", "support-compat")
+    }
 }
 
 dependencies {

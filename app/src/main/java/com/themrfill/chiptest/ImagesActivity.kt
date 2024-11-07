@@ -30,6 +30,8 @@ import androidx.compose.ui.res.stringResource
 import androidx.lifecycle.viewmodel.compose.viewModel
 import coil3.compose.AsyncImage
 import com.themrfill.chiptest.ui.theme.ChipTestTheme
+import com.themrfill.chiptest.ui.theme.primaryColor
+import com.themrfill.chiptest.ui.theme.secondaryColor
 import com.themrfill.chiptest.vm.ImagesViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -50,8 +52,8 @@ class ImagesActivity: ComponentActivity() {
                     topBar = {
                         TopAppBar(
                             colors = TopAppBarDefaults.topAppBarColors(
-                                containerColor = MaterialTheme.colorScheme.primaryContainer,
-                                titleContentColor = MaterialTheme.colorScheme.primary,
+                                containerColor = primaryColor,
+                                titleContentColor = secondaryColor,
                             ),
                             title = {
                                 Text(stringResource(R.string.dog_name, dog))
@@ -61,6 +63,7 @@ class ImagesActivity: ComponentActivity() {
                                     Icon(
                                         imageVector = Icons.AutoMirrored.Filled.ArrowBack,
                                         contentDescription = stringResource(R.string.back_button),
+                                        tint = secondaryColor,
                                     )
                                 }
                             },
